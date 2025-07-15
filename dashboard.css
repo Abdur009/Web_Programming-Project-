@@ -1,0 +1,363 @@
+/* General Resets and Body Styles (Common for all pages) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Slightly adjusted font stack for a closer match */
+    background: #f9f9f9; /* Light gray background for the entire page */
+    color: #333;
+}
+
+/* Navigation Bar Styles (Common for all pages: Dashboard, Reviews, Gallery) */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d9234e; /* Red color for navigation */
+    padding: 12px 24px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.8rem; /* Consistent font size */
+    font-weight: bold;
+    color: white;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Consistent spacing between nav items and profile dropdown */
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.nav-right a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+/* Profile Dropdown Styles (Common for all pages) */
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+    object-fit: cover; /* Ensures image fills the circle without distortion */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px; /* Position below the nav bar */
+    background: white;
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 200px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f2f2f2;
+}
+
+/* This JavaScript toggles the display property. The hover effect from CSS is removed to prevent conflict */
+/* .profile-dropdown:hover .dropdown-content {
+    display: block;
+} */
+
+
+/* --- Hero Section Styles --- */
+.hero-main {
+    background-color: #6c757d; /* Dark gray background as per screenshot */
+    padding: 100px 20px; /* Increased padding for more vertical space */
+    text-align: center;
+    color: white; /* White text for contrast */
+}
+
+.hero-main h1 {
+    font-size: 3rem; /* Larger heading */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.hero-main p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-main .btn-explore {
+    background-color: #d9234e; /* Red button color */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px; /* Highly rounded corners */
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none; /* For the anchor tag */
+    display: inline-block; /* Allows padding and margin for anchor */
+    transition: background-color 0.3s ease;
+}
+
+.hero-main .btn-explore:hover {
+    background-color: #a71b3e; /* Slightly darker red on hover */
+}
+
+/* --- Features Section Styles (now below the hero and before available hostels) --- */
+.features-section {
+    display: flex;
+    justify-content: center; /* Center items for wider screens */
+    padding: 40px 20px;
+    background: #fff; /* White background for the features section */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 20px; /* Space between feature cards */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow at the bottom */
+    margin-top: -60px; /* Overlap with the hero section */
+    position: relative; /* Needed for z-index to work */
+    z-index: 10; /* Ensure it's above the hero background */
+    border-radius: 10px; /* Slightly rounded corners */
+    max-width: 1000px; /* Max width for the feature container */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-card {
+    background: white; /* White background for each card */
+    padding: 25px;
+    border-radius: 8px;
+    flex: 1; /* Allows cards to grow and shrink */
+    min-width: 250px; /* Minimum width before wrapping */
+    max-width: 300px; /* Max width for consistency */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Shadow for individual cards */
+    text-align: left; /* Align text to the left */
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #d9234e; /* was #333 */
+    font-weight: 600;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- Available Hostels Section Styles --- */
+.available-hostels-section {
+    padding: 60px 20px;
+    background: #f9f9f9; /* Light gray background for this section */
+    text-align: center;
+}
+
+.available-hostels-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+    font-weight: bold;
+}
+
+.hostel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Space between hostel cards */
+    max-width: 1000px;
+    margin: 0 auto; /* Center the grid */
+}
+
+.hostel-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures image corners are rounded */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align text inside cards to the left */
+    transition: transform 0.3s ease;
+}
+
+.hostel-card:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.hostel-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-bottom: 1px solid #eee;
+}
+
+.hostel-info {
+    padding: 20px;
+}
+
+.hostel-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+}
+
+.hostel-info p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.hostel-info .btn-details {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.hostel-info .btn-details:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* Media Queries for responsiveness */
+@media (max-width: 992px) {
+    .hero-main h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-main p {
+        font-size: 1.1rem;
+    }
+
+    .features-section {
+        flex-direction: column; /* Stack features on smaller screens */
+        align-items: center; /* Center stacked feature cards */
+    }
+
+    .feature-card {
+        max-width: 400px; /* Slightly wider for stacked cards */
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+    }
+
+    .nav-right {
+        margin-top: 10px;
+        flex-wrap: wrap; /* Allow nav links to wrap */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-main {
+        padding: 80px 15px;
+    }
+
+    .hero-main h1 {
+        font-size: 2rem;
+    }
+
+    .hero-main p {
+        font-size: 1rem;
+    }
+
+    .features-section {
+        padding: 30px 15px;
+        margin-top: -40px; /* Adjust overlap */
+    }
+
+    .feature-card {
+        padding: 20px;
+    }
+
+    .available-hostels-section {
+        padding: 40px 15px;
+    }
+
+    .available-hostels-section h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .hostel-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-main h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-main p {
+        font-size: 0.9rem;
+    }
+
+    .hero-main .btn-explore {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    .hostel-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .hostel-info p {
+        font-size: 0.9rem;
+    }
+
+    .hostel-info .btn-details {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Critical CSS only - rest moved to external file */
